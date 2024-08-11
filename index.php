@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 // Obtén el nombre de la carpeta desde la URL
 $nombreCarpeta = isset($_GET['carpeta']) ? $_GET['carpeta'] : '';
 
@@ -50,78 +49,6 @@ function generarCadenaAleatoria() {
         $cadenaAleatoria .= $caracterAleatorio;
     }
     return $cadenaAleatoria;
-=======
-// Función para generar una cadena aleatoria
-function generarCadenaAleatoria($longitud = 3) {
-    return substr(str_shuffle('abcdefghijklmnopqrstuvwxyz0123456789'), 0, $longitud);
-}
-
-// Obtener el segmento de la URL que debería ser el nombre de la carpeta
-$requestUri = $_SERVER['REQUEST_URI'];
-$carpetaNombre = trim(parse_url($requestUri, PHP_URL_PATH), '/');
-
-// Verificar si no se proporciona un nombre de carpeta o si es 'instafile'
-if (empty($carpetaNombre) || $carpetaNombre == 'instafile') {
-    // Generar un nuevo código aleatorio si no se proporciona ninguno
-    $carpetaNombre = generarCadenaAleatoria();
-    header("Location: /$carpetaNombre");
-    exit();
-}
-
-// Definir la ruta completa de la carpeta
-$carpetaRuta = __DIR__ . "/descarga/" . $carpetaNombre;
-
-try {
-    // Crear la carpeta si no existe
-    if (!file_exists($carpetaRuta)) {
-        if (!mkdir($carpetaRuta, 0755, true)) {
-            throw new Exception("No se pudo crear la carpeta.");
-        }
-        $mensaje = "Carpeta '$carpetaNombre' creada con éxito.";
-    } else {
-        $mensaje = "La carpeta '$carpetaNombre' ya existe.";
-    }
-
-    // Manejo de la subida de archivos
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] === UPLOAD_ERR_OK) {
-            $archivo = $_FILES['archivo'];
-            $archivoRuta = $carpetaRuta . '/' . basename($archivo['name']);
-
-            // Verificar si el archivo ya existe
-            if (file_exists($archivoRuta)) {
-                throw new Exception("El archivo ya existe.");
-            }
-
-            // Mover el archivo subido a la carpeta destino
-            if (move_uploaded_file($archivo['tmp_name'], $archivoRuta)) {
-                $mensaje = "Archivo subido con éxito.";
-            } else {
-                throw new Exception("Error al subir el archivo.");
-            }
-        } else {
-            throw new Exception("Error durante la subida del archivo.");
-        }
-    }
-
-    // Manejo de la eliminación de archivos
-    if (isset($_POST['eliminarArchivo'])) {
-        $archivoAEliminar = $_POST['eliminarArchivo'];
-        $archivoRutaAEliminar = $carpetaRuta . '/' . $archivoAEliminar;
-
-        if (file_exists($archivoRutaAEliminar)) {
-            if (unlink($archivoRutaAEliminar)) {
-                $mensaje = "Archivo '$archivoAEliminar' eliminado con éxito.";
-            } else {
-                throw new Exception("Error al eliminar el archivo.");
-            }
-        } else {
-            throw new Exception("El archivo '$archivoAEliminar' no existe.");
-        }
-    }
-} catch (Exception $e) {
-    $mensaje = "Error: " . htmlspecialchars($e->getMessage());
->>>>>>> ac06d9e2f0bff1cb7b6da4f1c148a3c10684ec17
 }
 ?>
 
