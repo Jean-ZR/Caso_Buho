@@ -11,6 +11,7 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 400;
+<<<<<<< HEAD
   color: #333; /* Texto oscuro */
   text-align: center;
   padding: 20px;
@@ -18,6 +19,17 @@ body {
 }
 
 
+=======
+  color: #333;
+  text-align: center;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+>>>>>>> ac06d9e2f0bff1cb7b6da4f1c148a3c10684ec17
 /* Animación de fondo minimalista */
 body::before {
   content: '';
@@ -32,40 +44,75 @@ body::before {
 }
 
 @keyframes animateBackground {
+<<<<<<< HEAD
   0% {
     background-position: 0 0;
   }
   100% {
     background-position: 100% 100%;
   }
+=======
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+>>>>>>> ac06d9e2f0bff1cb7b6da4f1c148a3c10684ec17
 }
 
 /* Contenedor principal */
 .content {
+<<<<<<< HEAD
   background-color: #ffffff; /* Fondo blanco */
   padding: 20px;
   border-radius: 10px; /* Bordes redondeados */
   max-width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+=======
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  max-width: 1200px;
+  width: calc(100% - 20px);
+  align-self: center;
+>>>>>>> ac06d9e2f0bff1cb7b6da4f1c148a3c10684ec17
 }
 
 h1 {
   font-weight: 600;
   font-size: 32px;
+<<<<<<< HEAD
   margin: 20px 0;
   color: #ff6600; /* Color naranja */
+=======
+  margin-bottom: 20px;
+  color: #ff6600;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+>>>>>>> ac06d9e2f0bff1cb7b6da4f1c148a3c10684ec17
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+<<<<<<< HEAD
   margin-top: 20px;
+=======
+  flex-grow: 1;
+  gap: 20px;
+>>>>>>> ac06d9e2f0bff1cb7b6da4f1c148a3c10684ec17
 }
 
 /* Contenedores individuales */
 .drop-area,
 .container2 {
+<<<<<<< HEAD
   width: 100%;
   max-width: 400px; /* Ancho máximo para evitar que se vuelva demasiado ancho */
   margin: 10px;
@@ -76,25 +123,161 @@ h1 {
 
 .drop-area {
   border: 2px dashed #c2194c; /* Borde naranja */
+=======
+  flex: 1 1 400px;
+  min-height: 300px;
+  padding: 20px;
+  transition: all .1s ease-in;
+  background-color: #f0e9e9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.drop-area {
+  border: 2px dashed #c2194c;
+>>>>>>> ac06d9e2f0bff1cb7b6da4f1c148a3c10684ec17
   border-radius: 10px;
 }
 
 .container2 {
+<<<<<<< HEAD
   padding: 10px 20px;
   background-color: #f8f8f8; /* Fondo gris suave */
   overflow-y: auto;
+=======
+  background-color: #f8f8f8;
+}
+
+/* Estilos para los elementos dentro de drop-area */
+.drop-area svg {
+  margin-bottom: 15px;
+}
+
+.drop-area label {
+  margin-bottom: 10px;
+}
+
+.drop-area p {
+  font-weight: bold;
+}
+
+/* Estilos para los archivos subidos */
+.pila {
+  width: 100%;
+}
+
+.archivos_subidos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.boton-descargar {
+  text-decoration: none;
+  color: #0730c5;
+  font-weight: bold;
+}
+
+.btn_delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #c2194c;
+>>>>>>> ac06d9e2f0bff1cb7b6da4f1c148a3c10684ec17
 }
 
 /* Estilos para pantallas más pequeñas */
 @media screen and (max-width: 768px) {
+<<<<<<< HEAD
   .container {
     flex-direction: column;
     align-items: center;
+=======
+  .content {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 16px;
+>>>>>>> ac06d9e2f0bff1cb7b6da4f1c148a3c10684ec17
   }
 
   .drop-area,
   .container2 {
+<<<<<<< HEAD
     width: 90%; /* Reducir el ancho en pantallas más pequeñas */
     max-width: none; /* Restablecer el ancho máximo */
   }
 }
+=======
+    min-height: 250px;
+  }
+}
+
+/* Estilos para pantallas muy pequeñas */
+@media screen and (max-width: 480px) {
+  .content {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  .drop-area,
+  .container2 {
+    min-height: 200px;
+    padding: 15px;
+  }
+
+  .archivos_subidos {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn_delete {
+    margin-top: 10px;
+  }
+}
+
+/* Estilos adicionales para mejorar la apariencia */
+.beta {
+  font-size: 0.5em;
+  vertical-align: super;
+  color: #c2194c;
+}
+
+.file-input {
+  display: none;
+}
+
+/* Mejoras de accesibilidad */
+.boton-descargar:hover,
+.boton-descargar:focus,
+.btn_delete:hover,
+.btn_delete:focus {
+  opacity: 0.8;
+  outline: none;
+}
+
+/* Animación sutil para el hover en drop-area */
+.drop-area:hover {
+  background-color: #e6e0e0;
+}
+>>>>>>> ac06d9e2f0bff1cb7b6da4f1c148a3c10684ec17
